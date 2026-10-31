@@ -104,5 +104,5 @@
       "canReceive": true
     }
   ],
-  "note": "Balances and statuses are reset before each independent sample unless a test explicitly covers replay or concurrency."
+  "note": "Reset this shared fixture before each implementation run; account balances persist across the ordered messages within that run."
 }
