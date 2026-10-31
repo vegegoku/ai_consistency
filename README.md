@@ -4,6 +4,7 @@ This repository contains 20 independent Java payment backend implementations bui
 
 ## Start here
 
+- [Open the GitHub Pages report](https://vegegoku.github.io/ai_consistency/)
 - [Static source analysis and comparison report](static-source-analysis.html) — source, requirements coverage, security and deployability signals, message-run charts, implementation comparisons, and detailed message outcomes.
 - [Payment samples and run results](payment-samples/results/README.md) — the shared ten-account fixture, 250 JSON and 250 XML messages, and sequential processing results for implementations 01–20.
 - [Implementation requirements](Payment%20App%20requirements/payment-processing-requirements.md)
