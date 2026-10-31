@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>bad</paymentId><fromAccount>ACC-1001</fromAccount><toAccount>ACC-2002</toAccount><amount>0</amount><date>bad</date><purpose /></payment>

@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: payments
+      POSTGRES_PASSWORD: local-dev-only
+    ports: ["127.0.0.1:5414:5432"]
+    volumes: ["payments-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payments -d payments"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  app:
+    build: .
+    depends_on:
+      postgres: {condition: service_healthy}
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/payments
+      DB_USER: payments
+      DB_PASSWORD: local-dev-only
+      DEV_MODE: "true"
+      MIGRATE_ON_START: "true"
+      JWT_ISSUER: https://local.example
+      JWT_AUDIENCE: payments
+      JWT_JWKS_FILE: /app/config/public-jwks.json
+    ports: ["127.0.0.1:8014:8080"]
+    volumes: ["./config/public-jwks.json:/app/config/public-jwks.json:ro"]
+volumes:
+  payments-data:

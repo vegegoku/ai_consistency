@@ -1,0 +1,28 @@
+{
+  "implementation": "06",
+  "baseUrl": "http://localhost:8080",
+  "samplesPerFormat": 250,
+  "formats": [
+    "json",
+    "xml"
+  ],
+  "requestsRecorded": 500,
+  "httpStatusCounts": {
+    "201": 137,
+    "200": 121,
+    "409": 124,
+    "400": 105,
+    "403": 11,
+    "413": 2
+  },
+  "errorCodeCounts": {
+    "INSUFFICIENT_FUNDS": 112,
+    "VALIDATION_FAILED": 81,
+    "MALFORMED_MESSAGE": 24,
+    "FORBIDDEN": 11,
+    "ACCOUNT_NOT_ACTIVE": 8,
+    "IDEMPOTENCY_CONFLICT": 4
+  },
+  "messageResults": "implementation-06.jsonl",
+  "completedAt": "2026-10-31T15:14:51.428354+00:00"
+}

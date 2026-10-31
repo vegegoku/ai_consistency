@@ -1,0 +1,13 @@
+{
+  "requests": 6000,
+  "targetRps": 100,
+  "arrivalSeconds": 60,
+  "wallSeconds": 59.999,
+  "p95Ms": 78.917,
+  "maxMs": 1274.774,
+  "successfulReceipts": 6000,
+  "statuses": {
+    "201": 6000
+  },
+  "passed": true
+}

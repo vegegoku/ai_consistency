@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>79d946c1-4317-578f-bc0f-e38483b29794</paymentId><fromAccount>ACC-2002</fromAccount><toAccount>ACC-6006</toAccount><amount>1.000</amount><date>2026-10-31T09:02:59+00:00</date><purpose>Batch sample 180 – refund</purpose><notes>Reference 180</notes></payment>

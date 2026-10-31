@@ -1,0 +1,8 @@
+{
+  "paymentId": "448cb62d-a7e6-53ba-8e67-05c7724d4d4f",
+  "fromAccount": "ACC-1001",
+  "toAccount": "ACC-2002",
+  "amount": "125.750",
+  "date": "2026-10-31T12:00:00+03:00",
+  "purpose": "Sample transfer 018"
+}

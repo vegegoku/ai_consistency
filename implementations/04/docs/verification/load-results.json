@@ -1,0 +1,8 @@
+{
+  "requests": 6000,
+  "targetRps": 100,
+  "elapsedSeconds": 60.0,
+  "p95Ms": 22.012,
+  "errors": 0,
+  "targetMet": true
+}

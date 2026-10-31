@@ -1,0 +1,8 @@
+{
+  "paymentId": null,
+  "fromAccount": null,
+  "toAccount": null,
+  "amount": null,
+  "date": null,
+  "purpose": null
+}

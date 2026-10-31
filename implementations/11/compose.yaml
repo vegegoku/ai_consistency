@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: payments
+      POSTGRES_PASSWORD: local-development-only
+    ports: ["${POSTGRES_PORT:-5432}:5432"]
+    volumes: ["payment-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payments -d payments"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  oidc:
+    image: quay.io/keycloak/keycloak:26.7.5
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: local-admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: local-admin-only
+      KC_HOSTNAME: http://localhost:8081
+    ports: ["${OIDC_PORT:-8081}:8080"]
+    volumes: ["./deployment/local-realm.json:/opt/keycloak/data/import/payments-realm.json:ro"]
+  app:
+    build: .
+    ports: ["${APP_PORT:-8080}:8080"]
+    depends_on:
+      db: {condition: service_healthy}
+      oidc: {condition: service_started}
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      DB_URL: jdbc:postgresql://db:5432/payments
+      DB_USER: payments
+      DB_PASSWORD: local-development-only
+      OIDC_ISSUER: http://localhost:8081/realms/payments
+      OIDC_JWKS: http://oidc:8080/realms/payments/protocol/openid-connect/certs
+      OIDC_AUDIENCE: payment-service
+      REQUIRE_TLS: "false"
+volumes:
+  payment-data:

@@ -1,0 +1,6 @@
+/target/
+.env
+*.log
+*.dump
+*.pem
+__pycache__/

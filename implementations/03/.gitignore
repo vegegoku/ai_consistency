@@ -1,0 +1,4 @@
+target/
+*.log
+dev/*.pem
+dev/token.txt

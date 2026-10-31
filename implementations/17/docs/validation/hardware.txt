@@ -1,0 +1,9 @@
+Architecture:                            x86_64
+CPU(s):                                  16
+On-line CPU(s) list:                     0-15
+Model name:                              11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz
+CPU(s) scaling MHz:                      91%
+NUMA node0 CPU(s):                       0-15
+MemTotal:       64390184 kB
+MemFree:         3805016 kB
+MemAvailable:   25725452 kB

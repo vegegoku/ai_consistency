@@ -1,0 +1,9 @@
+target/
+*.log
+.env
+*.pem
+*.key
+*.p12
+!src/test/resources/*.pem
+
+__pycache__/

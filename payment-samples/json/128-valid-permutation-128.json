@@ -1,0 +1,9 @@
+{
+  "paymentId": "1ca9abb2-6d81-5a85-ad67-b17a8a4463c7",
+  "fromAccount": "ACC-2002",
+  "toAccount": "ACC-6006",
+  "amount": "500.000",
+  "date": "2026-10-31T09:02:07+00:00",
+  "purpose": "Batch sample 128 – refund",
+  "notes": "Reference 128"
+}

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>8e9f8ac9-eb82-5d10-9afe-1beda0aa8007</paymentId><fromAccount>ACC-4004</fromAccount><toAccount>ACC-1001</toAccount><amount>0.125</amount><date>2026-10-31T09:04:02+00:00</date><purpose>Batch sample 243 – rent</purpose><notes>Reference 243</notes></payment>

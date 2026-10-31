@@ -1,0 +1,10 @@
+{
+  "requests": 1000,
+  "rate": 100,
+  "duration_seconds": 9.995,
+  "errors": 0,
+  "p95_ms": 11.298,
+  "max_ms": 135.392,
+  "host": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "processors": 16
+}

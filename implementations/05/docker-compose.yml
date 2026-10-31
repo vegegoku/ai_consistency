@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: payments
+      POSTGRES_PASSWORD: payments-local-only
+    ports:
+      - '127.0.0.1:5435:5432'
+    volumes:
+      - payments05-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U payments -d payments']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  payments05-data:

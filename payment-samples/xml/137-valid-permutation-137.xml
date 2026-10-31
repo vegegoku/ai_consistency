@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>5c51cde7-dfb0-50cb-a27e-8b57092cad93</paymentId><fromAccount>ACC-1001</fromAccount><toAccount>ACC-2002</toAccount><amount>0.001</amount><date>2026-10-31T09:02:16+00:00</date><purpose>Batch sample 137 – invoice</purpose><notes>Reference 137</notes></payment>

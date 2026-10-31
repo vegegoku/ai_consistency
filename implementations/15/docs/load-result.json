@@ -1,0 +1,10 @@
+{
+  "requests": 3000,
+  "target_rps": 100,
+  "elapsed_seconds": 29.99768019100884,
+  "p95_ms": 7.73731799563393,
+  "status_counts": {
+    "201": 3000
+  },
+  "passed": true
+}

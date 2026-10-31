@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: payments
+      POSTGRES_PASSWORD: local-development-only
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["payment20-db:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payments -d payments"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  app:
+    build: .
+    ports: ["127.0.0.1:8443:8443"]
+    depends_on:
+      postgres: {condition: service_healthy}
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/payments
+      DB_USER: payments
+      DB_PASSWORD: local-development-only
+      JWT_PUBLIC_KEY: file:/run/jwt/public.pem
+      JWT_ISSUER: https://issuer.example.test
+      JWT_AUDIENCE: payments-api
+      QUARKUS_HTTP_SSL_CERTIFICATE_FILES: /run/tls/cert.pem
+      QUARKUS_HTTP_SSL_CERTIFICATE_KEY_FILES: /run/tls/key.pem
+      PAYMENTS_SEED_DEMO: "true"
+    volumes:
+      - ./deploy/tls:/run/tls:ro
+      - ./deploy/jwt/public.pem:/run/jwt/public.pem:ro
+volumes:
+  payment20-db: {}

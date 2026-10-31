@@ -1,0 +1,22 @@
+name: payment-service-08
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: payments_owner
+      POSTGRES_PASSWORD: ${POSTGRES_OWNER_PASSWORD:-local-owner-only}
+      APP_PASSWORD: ${DATABASE_PASSWORD:-local-app-only}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - payment-data:/var/lib/postgresql/data
+      - ./docker/init-local.sh:/docker-entrypoint-initdb.d/01-local-role.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U payments_owner -d payments"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+    restart: unless-stopped
+volumes:
+  payment-data:

@@ -1,0 +1,1 @@
+<!DOCTYPE payment [<!ENTITY x "blocked">]><payment><purpose>&x;</purpose></payment>

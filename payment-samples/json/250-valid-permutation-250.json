@@ -1,0 +1,9 @@
+{
+  "paymentId": "1d23af4d-64f8-50e2-88c7-941cd068baf4",
+  "fromAccount": "ACC-6006",
+  "toAccount": "ACC-2002",
+  "amount": "0.010",
+  "date": "2026-10-31T09:04:09+00:00",
+  "purpose": "Batch sample 250 – services",
+  "notes": "Reference 250"
+}

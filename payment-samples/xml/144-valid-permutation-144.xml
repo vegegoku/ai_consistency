@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>a9d26455-ed09-51da-8f0a-b2e8c98a02e9</paymentId><fromAccount>ACC-2002</fromAccount><toAccount>ACC-6006</toAccount><amount>500.000</amount><date>2026-10-31T09:02:23+00:00</date><purpose>Batch sample 144 – refund</purpose><notes>Reference 144</notes></payment>

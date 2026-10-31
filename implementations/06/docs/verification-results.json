@@ -1,0 +1,27 @@
+{
+  "command": "JAVA_HOME=/home/vegegoku/.sdkman/candidates/java/21.0.5-tem mvn --batch-mode clean verify",
+  "exit_code": 0,
+  "java": "21.0.5",
+  "maven": "3.9.9",
+  "database": "PostgreSQL 16.15",
+  "tests": {
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "load": {
+    "requests": 500,
+    "errors": 0,
+    "offered_rps": 100,
+    "p95_ms": 7.276,
+    "elapsed_seconds": 4.994
+  },
+  "reference_environment": {
+    "cpu": "Intel Core i7-11700, 16 logical CPUs",
+    "memory_mib": 62881,
+    "docker": "29.9.2",
+    "transport": "localhost HTTP",
+    "pool_max": 24
+  }
+}

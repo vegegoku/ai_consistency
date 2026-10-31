@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>048d4f83-2631-5dc9-ad9f-a6a4c0f3b3a7</paymentId><fromAccount>ACC-1001</fromAccount><toAccount>ACC-6006</toAccount><amount>12.345</amount><date>2026-10-31T12:00:00+03:00</date><purpose>Shared idempotency fixture</purpose></payment>

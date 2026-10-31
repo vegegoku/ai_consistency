@@ -1,0 +1,8 @@
+{
+  "paymentId": "bad",
+  "fromAccount": "ACC-1001",
+  "toAccount": "ACC-2002",
+  "amount": "0",
+  "date": "bad",
+  "purpose": ""
+}

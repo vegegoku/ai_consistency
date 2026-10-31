@@ -1,0 +1,12 @@
+{
+  "processRestart": "passed: original stored receipt remains identical",
+  "balanceAfter6000Transfers": "494.000 JOD source",
+  "reconciliation": "no issues",
+  "metrics": "authenticated text/plain endpoint passed",
+  "openapi": "packaged YAML served",
+  "leastPrivilegeRuntimeRole": "successful transfer and reconciliation with restricted grants; migrations disabled",
+  "postSmokePayments": 6001,
+  "postSmokeLedgerEntries": 12002,
+  "container": "payment14:verified built and nonroot Compose container passed readiness and authorized balance query",
+  "imageId": "sha256:0eb0932b618b48c5fa7c3201251a7d527e8a9d6a70d6873f19b63693cee35808"
+}

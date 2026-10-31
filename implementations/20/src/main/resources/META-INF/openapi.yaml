@@ -1,0 +1,659 @@
+openapi: 3.0.3
+info:
+  title: Payment Processing API
+  version: 1.0.0
+  description: JOD internal transfers. UTF-8 only; exact three-place receipts; reject
+    duplicate/unknown fields and XML DTDs. Token customer_id identifies customer ownership.
+    Debits require ownership or explicit grants; active receive-enabled accounts may
+    receive customer payments.
+servers:
+- url: https://localhost:8443
+paths:
+  /api/v1/payments:
+    post:
+      summary: Atomically submit payment
+      security:
+      - bearerAuth: []
+      x-required-scope: payments:write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+            example:
+              paymentId: d92192df-f79a-4553-8120-5660d2eb1294
+              fromAccount: ACC-1001
+              toAccount: ACC-2002
+              amount: '125.750'
+              date: '2026-10-28T13:30:00+03:00'
+              purpose: Invoice payment INV-2048
+              notes: October services
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Payment'
+            example: <payment><paymentId>d92192df-f79a-4553-8120-5660d2eb1294</paymentId><fromAccount>ACC-1001</fromAccount><toAccount>ACC-2002</toAccount><amount>125.750</amount><date>2026-10-28T13:30:00+03:00</date><purpose>Invoice
+              payment INV-2048</purpose><notes>October services</notes></payment>
+      responses:
+        '201':
+          description: First committed transfer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+        '200':
+          description: Original receipt on idempotent replay
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+        '400':
+          description: MALFORMED_MESSAGE / VALIDATION_FAILED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: UNAUTHENTICATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: FORBIDDEN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: ACCOUNT_NOT_FOUND / PAYMENT_NOT_FOUND
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '406':
+          description: NOT_ACCEPTABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: ACCOUNT_NOT_ACTIVE / INSUFFICIENT_FUNDS / IDEMPOTENCY_CONFLICT
+            / PAYMENT_LIMIT_EXCEEDED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: REQUEST_TOO_LARGE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '415':
+          description: UNSUPPORTED_MEDIA_TYPE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: RATE_LIMITED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: INTERNAL_ERROR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: TEMPORARILY_UNAVAILABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/v1/payments/{id}:
+    get:
+      summary: Get own payment; hidden records return 404
+      security:
+      - bearerAuth: []
+      x-required-scope: payments:read
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Stored result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoredResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StoredResult'
+        '400':
+          description: MALFORMED_MESSAGE / VALIDATION_FAILED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: UNAUTHENTICATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: FORBIDDEN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: ACCOUNT_NOT_FOUND / PAYMENT_NOT_FOUND
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '406':
+          description: NOT_ACCEPTABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: ACCOUNT_NOT_ACTIVE / INSUFFICIENT_FUNDS / IDEMPOTENCY_CONFLICT
+            / PAYMENT_LIMIT_EXCEEDED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: REQUEST_TOO_LARGE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '415':
+          description: UNSUPPORTED_MEDIA_TYPE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: RATE_LIMITED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: INTERNAL_ERROR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: TEMPORARILY_UNAVAILABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/v1/accounts/{id}/balance:
+    get:
+      summary: Get authorized balance
+      security:
+      - bearerAuth: []
+      x-required-scope: accounts:read
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Stored result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Balance'
+        '400':
+          description: MALFORMED_MESSAGE / VALIDATION_FAILED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: UNAUTHENTICATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: FORBIDDEN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: ACCOUNT_NOT_FOUND / PAYMENT_NOT_FOUND
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '406':
+          description: NOT_ACCEPTABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: ACCOUNT_NOT_ACTIVE / INSUFFICIENT_FUNDS / IDEMPOTENCY_CONFLICT
+            / PAYMENT_LIMIT_EXCEEDED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: REQUEST_TOO_LARGE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '415':
+          description: UNSUPPORTED_MEDIA_TYPE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: RATE_LIMITED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: INTERNAL_ERROR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: TEMPORARILY_UNAVAILABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/v1/admin/reconciliation:
+    get:
+      summary: Admin reconciliation report
+      security:
+      - bearerAuth: []
+      x-required-scope: payments:admin and admin group
+      responses:
+        '200':
+          description: Ledger and account discrepancies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reconciliation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Reconciliation'
+        '400':
+          description: MALFORMED_MESSAGE / VALIDATION_FAILED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: UNAUTHENTICATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: FORBIDDEN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: ACCOUNT_NOT_FOUND / PAYMENT_NOT_FOUND
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '406':
+          description: NOT_ACCEPTABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: ACCOUNT_NOT_ACTIVE / INSUFFICIENT_FUNDS / IDEMPOTENCY_CONFLICT
+            / PAYMENT_LIMIT_EXCEEDED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: REQUEST_TOO_LARGE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '415':
+          description: UNSUPPORTED_MEDIA_TYPE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: RATE_LIMITED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: INTERNAL_ERROR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: TEMPORARILY_UNAVAILABLE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Payment:
+      type: object
+      additionalProperties: false
+      required:
+      - paymentId
+      - fromAccount
+      - toAccount
+      - amount
+      - date
+      - purpose
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+        fromAccount:
+          type: string
+          maxLength: 100
+        toAccount:
+          type: string
+          maxLength: 100
+        amount:
+          oneOf:
+          - type: string
+            pattern: ^[0-9]+(\.[0-9]{1,3})?$
+          - type: number
+            exclusiveMinimum: true
+            minimum: 0
+            maximum: 10000
+        date:
+          type: string
+          format: date-time
+        purpose:
+          type: string
+          maxLength: 255
+        notes:
+          type: string
+          maxLength: 1000
+      xml:
+        name: payment
+    Receipt:
+      type: object
+      required:
+      - paymentId
+      - status
+      - fromAccount
+      - toAccount
+      - amount
+      - currency
+      - processedAt
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - COMPLETED
+        fromAccount:
+          type: string
+        toAccount:
+          type: string
+        amount:
+          type: string
+          example: '125.750'
+        currency:
+          type: string
+          enum:
+          - JOD
+        processedAt:
+          type: string
+          format: date-time
+      xml:
+        name: response
+    Error:
+      type: object
+      required:
+      - status
+      - code
+      - message
+      - issues
+      - correlationId
+      - timestamp
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - ERROR
+          - REJECTED
+        code:
+          type: string
+        message:
+          type: string
+        issues:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              code:
+                type: string
+              message:
+                type: string
+        correlationId:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+      xml:
+        name: response
+    StoredResult:
+      oneOf:
+      - $ref: '#/components/schemas/Receipt'
+      - $ref: '#/components/schemas/Error'
+    Balance:
+      type: object
+      properties:
+        accountId:
+          type: string
+        availableBalance:
+          type: string
+          example: '374.250'
+        currency:
+          type: string
+          enum:
+          - JOD
+    Reconciliation:
+      type: object
+      properties:
+        issues:
+          type: array
+          items:
+            type: object

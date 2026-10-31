@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-28T17:02:52.074870+00:00",
+  "environment": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "database": "PostgreSQL 16.15 local Docker",
+  "service": "Java 21 JDK HTTP, local HTTP loopback, same source account",
+  "ratePerSecond": 100,
+  "durationSeconds": 60,
+  "requests": 6000,
+  "elapsedSeconds": 60.002,
+  "statuses": {
+    "201": 6000
+  },
+  "p50Ms": 3.938,
+  "p95Ms": 44.012,
+  "maxMs": 230.956,
+  "passed": true
+}

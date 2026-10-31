@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>b236c283-2d1b-5e3a-a0a2-6353f8be3743</paymentId><fromAccount>ACC-1001</fromAccount><toAccount>ACC-2002</toAccount><amount>0.010</amount><date>2026-10-31T12:00:00+03:00</date><purpose>Sample transfer 007</purpose></payment>

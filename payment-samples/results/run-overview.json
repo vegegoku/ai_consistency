@@ -1,0 +1,520 @@
+{
+  "fixture": "payment-samples-10-accounts-v1",
+  "messagesPerFormat": 250,
+  "requestsPerImplementation": 500,
+  "processingOrder": "For each sample number from 001 through 250: JSON followed by XML; account balances persisted across requests within that implementation.",
+  "implementations": [
+    {
+      "implementation": "01",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 127,
+        "400": 107,
+        "403": 7,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 7,
+        "IDEMPOTENCY_CONFLICT": 5,
+        "ACCOUNT_NOT_ACTIVE": 10
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-01.jsonl",
+      "summary": "implementation-01-summary.json",
+      "finalBalances": "implementation-01-final-balances.json"
+    },
+    {
+      "implementation": "02",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 130,
+        "200": 116,
+        "409": 140,
+        "400": 103,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 128,
+        "VALIDATION_FAILED": 79,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "PAYLOAD_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-02.jsonl",
+      "summary": "implementation-02-summary.json",
+      "finalBalances": "implementation-02-final-balances.json"
+    },
+    {
+      "implementation": "03",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 125,
+        "400": 105,
+        "403": 11,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 81,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 11,
+        "IDEMPOTENCY_CONFLICT": 5,
+        "ACCOUNT_NOT_ACTIVE": 8
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-03.jsonl",
+      "summary": "implementation-03-summary.json",
+      "finalBalances": "implementation-03-final-balances.json"
+    },
+    {
+      "implementation": "04",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 121,
+        "409": 124,
+        "400": 107,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "MESSAGE_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-04.jsonl",
+      "summary": "implementation-04-summary.json",
+      "finalBalances": "implementation-04-final-balances.json"
+    },
+    {
+      "implementation": "05",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 130,
+        "200": 115,
+        "409": 139,
+        "400": 105,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 127,
+        "VALIDATION_FAILED": 81,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-05.jsonl",
+      "summary": "implementation-05-summary.json",
+      "finalBalances": "implementation-05-final-balances.json"
+    },
+    {
+      "implementation": "06",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 11,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 121,
+        "409": 124,
+        "400": 105,
+        "403": 11,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 81,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 11,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-06.jsonl",
+      "summary": "implementation-06-summary.json",
+      "finalBalances": "implementation-06-final-balances.json"
+    },
+    {
+      "implementation": "07",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 124,
+        "400": 108,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 75,
+        "MALFORMED_MESSAGE": 33,
+        "FORBIDDEN": 9,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "PAYLOAD_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-07.jsonl",
+      "summary": "implementation-07-summary.json",
+      "finalBalances": "implementation-07-final-balances.json"
+    },
+    {
+      "implementation": "08",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 138,
+        "200": 122,
+        "409": 124,
+        "400": 107,
+        "403": 7,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 7,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "REQUEST_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-08.jsonl",
+      "summary": "implementation-08-summary.json",
+      "finalBalances": "implementation-08-final-balances.json"
+    },
+    {
+      "implementation": "09",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 125,
+        "400": 107,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 85,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "IDEMPOTENCY_CONFLICT": 5,
+        "ACCOUNT_NOT_ACTIVE": 8
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-09.jsonl",
+      "summary": "implementation-09-summary.json",
+      "finalBalances": "implementation-09-final-balances.json"
+    },
+    {
+      "implementation": "10",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 125,
+        "400": 107,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "IDEMPOTENCY_CONFLICT": 5,
+        "ACCOUNT_NOT_ACTIVE": 8
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-10.jsonl",
+      "summary": "implementation-10-summary.json",
+      "finalBalances": "implementation-10-final-balances.json"
+    },
+    {
+      "implementation": "11",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 130,
+        "200": 115,
+        "409": 139,
+        "400": 103,
+        "403": 11,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 127,
+        "VALIDATION_FAILED": 79,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 11,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "PAYLOAD_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-11.jsonl",
+      "summary": "implementation-11-summary.json",
+      "finalBalances": "implementation-11-final-balances.json"
+    },
+    {
+      "implementation": "12",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 121,
+        "409": 126,
+        "400": 103,
+        "403": 9,
+        "transport-error": 2,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 81,
+        "MALFORMED_MESSAGE": 22,
+        "FORBIDDEN": 9,
+        "ACCOUNT_NOT_ACTIVE": 10,
+        "PAYLOAD_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 2,
+      "messageResults": "implementation-12.jsonl",
+      "summary": "implementation-12-summary.json",
+      "finalBalances": "implementation-12-final-balances.json"
+    },
+    {
+      "implementation": "13",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 121,
+        "409": 126,
+        "400": 103,
+        "403": 9,
+        "transport-error": 2,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 81,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "ACCOUNT_NOT_ACTIVE": 10,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 2,
+      "messageResults": "implementation-13.jsonl",
+      "summary": "implementation-13-summary.json",
+      "finalBalances": "implementation-13-final-balances.json"
+    },
+    {
+      "implementation": "14",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 11,
+      "httpStatusCounts": {
+        "201": 130,
+        "200": 115,
+        "409": 139,
+        "400": 103,
+        "403": 11,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 127,
+        "VALIDATION_FAILED": 79,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 11,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "PAYLOAD_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-14.jsonl",
+      "summary": "implementation-14-summary.json",
+      "finalBalances": "implementation-14-final-balances.json"
+    },
+    {
+      "implementation": "15",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 121,
+        "409": 124,
+        "400": 105,
+        "403": 11,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 76,
+        "MALFORMED_MESSAGE": 29,
+        "FORBIDDEN": 11,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "PAYLOAD_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-15.jsonl",
+      "summary": "implementation-15-summary.json",
+      "finalBalances": "implementation-15-final-balances.json"
+    },
+    {
+      "implementation": "16",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 125,
+        "400": 107,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "IDEMPOTENCY_CONFLICT": 5,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "PAYLOAD_TOO_LARGE": 2
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-16.jsonl",
+      "summary": "implementation-16-summary.json",
+      "finalBalances": "implementation-16-final-balances.json"
+    },
+    {
+      "implementation": "17",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 130,
+        "200": 114,
+        "409": 139,
+        "400": 106,
+        "403": 11
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 127,
+        "VALIDATION_FAILED": 71,
+        "MALFORMED_MESSAGE": 35,
+        "FORBIDDEN": 11,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-17.jsonl",
+      "summary": "implementation-17-summary.json",
+      "finalBalances": "implementation-17-final-balances.json"
+    },
+    {
+      "implementation": "18",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 130,
+        "200": 115,
+        "409": 139,
+        "400": 103,
+        "403": 11,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 127,
+        "VALIDATION_FAILED": 79,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 11,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-18.jsonl",
+      "summary": "implementation-18-summary.json",
+      "finalBalances": "implementation-18-final-balances.json"
+    },
+    {
+      "implementation": "19",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 121,
+        "409": 120,
+        "400": 107,
+        "403": 13,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 13,
+        "ACCOUNT_NOT_ACTIVE": 4,
+        "MESSAGE_TOO_LARGE": 2,
+        "IDEMPOTENCY_CONFLICT": 4
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-19.jsonl",
+      "summary": "implementation-19-summary.json",
+      "finalBalances": "implementation-19-final-balances.json"
+    },
+    {
+      "implementation": "20",
+      "requestsRecorded": 500,
+      "finalBalanceRows": 10,
+      "httpStatusCounts": {
+        "201": 137,
+        "200": 120,
+        "409": 125,
+        "400": 107,
+        "403": 9,
+        "413": 2
+      },
+      "errorCodeCounts": {
+        "INSUFFICIENT_FUNDS": 112,
+        "VALIDATION_FAILED": 83,
+        "MALFORMED_MESSAGE": 24,
+        "FORBIDDEN": 9,
+        "IDEMPOTENCY_CONFLICT": 5,
+        "ACCOUNT_NOT_ACTIVE": 8,
+        "REQUEST_TOO_LARGE": 2
+      },
+      "transportErrors": 0,
+      "messageResults": "implementation-20.jsonl",
+      "summary": "implementation-20-summary.json",
+      "finalBalances": "implementation-20-final-balances.json"
+    }
+  ]
+}

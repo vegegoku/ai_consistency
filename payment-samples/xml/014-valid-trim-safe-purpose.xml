@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>748cda29-e6a0-594f-b2c2-bc4f69dadead</paymentId><fromAccount>ACC-1001</fromAccount><toAccount>ACC-2002</toAccount><amount>6.000</amount><date>2026-10-31T12:00:00+03:00</date><purpose>  invoice settlement  </purpose></payment>

@@ -1,0 +1,11 @@
+{
+  "requests": 6000,
+  "success": 6000,
+  "elapsedSeconds": 60.002587590002804,
+  "targetRps": 100,
+  "p95Ms": 471.5985179936979,
+  "statuses": {
+    "201": 6000
+  },
+  "targetMet": true
+}

@@ -1,0 +1,12 @@
+{
+  "requests": 6000,
+  "target_rps": 100,
+  "elapsed_seconds": 60.001649487996474,
+  "achieved_rps": 99.99725092891521,
+  "p95_ms": 21.65166600025259,
+  "failures": 0,
+  "reconciliation_issues": 0,
+  "environment": "Shared development host; one TLS/JWT JVM and PostgreSQL 16 container; fresh TLS connection per request",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "cpu_count": 16
+}

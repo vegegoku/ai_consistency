@@ -1,0 +1,10 @@
+{
+ "realm":"payments","enabled":true,"sslRequired":"none",
+ "clientScopes":[
+ {"name":"payments:read","protocol":"openid-connect","attributes":{"include.in.token.scope":"true"}},
+ {"name":"payments:write","protocol":"openid-connect","attributes":{"include.in.token.scope":"true"}},
+ {"name":"payment-audience","protocol":"openid-connect","protocolMappers":[{"name":"payment-service","protocol":"openid-connect","protocolMapper":"oidc-audience-mapper","config":{"included.client.audience":"payment-service","access.token.claim":"true"}}]}
+ ],
+ "clients":[{"clientId":"payment-service","publicClient":true,"directAccessGrantsEnabled":true,"standardFlowEnabled":false,"defaultClientScopes":["payments:read","payments:write","payment-audience"]}],
+ "users":[{"id":"alice","username":"alice","enabled":true,"credentials":[{"type":"password","value":"alice-development-only","temporary":false}]},{"id":"bob","username":"bob","enabled":true,"credentials":[{"type":"password","value":"bob-development-only","temporary":false}]}]
+}

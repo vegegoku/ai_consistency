@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-10-28T17:33:40.927063+00:00",
+  "environment": {
+    "os": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "cpu_count": 16,
+    "java": "openjdk version \"21.0.5\" 2024-10-15 LTS\nOpenJDK Runtime Environment Temurin-21.0.5+11 (build 21.0.5+11-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.5+11 (build 21.0.5+11-LTS, mixed mode, sharing)",
+    "database": "PostgreSQL 16-alpine Docker",
+    "application": "Spring Boot 3.4.4, one replica, JVM Xmx512m, pool 20",
+    "transport": "Loopback HTTP, real RS256 JWT verification, persistent per-worker connections; local benchmark only"
+  },
+  "duration_seconds": 60,
+  "submitted": 6000,
+  "achieved_rps": 100.00454577830217,
+  "errors": 0,
+  "p50_ms": 4.86138449923601,
+  "p95_ms": 23.73976200760808,
+  "p99_ms": 56.88083601125982,
+  "accounting_completed_ledger_totalbalance_ledgersum": "6100|12200|600.000|0.000",
+  "passes_initial_target": true
+}

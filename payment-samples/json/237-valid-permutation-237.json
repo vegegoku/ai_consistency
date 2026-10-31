@@ -1,0 +1,9 @@
+{
+  "paymentId": "6e2423ee-6f1b-5e8f-9d80-3279ad982830",
+  "fromAccount": "ACC-1001",
+  "toAccount": "ACC-2002",
+  "amount": "12.345",
+  "date": "2026-10-31T09:03:56+00:00",
+  "purpose": "Batch sample 237 – invoice",
+  "notes": "Reference 237"
+}

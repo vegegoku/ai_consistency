@@ -1,0 +1,55 @@
+{
+  "implementation": "09",
+  "balances": [
+    {
+      "accountId": "ACC-1001",
+      "availableBalance": "4.816",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-1010",
+      "availableBalance": "800.000",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-2002",
+      "availableBalance": "3002.480",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-3003",
+      "availableBalance": "0.000",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-4004",
+      "availableBalance": "0.000",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-5005",
+      "availableBalance": "0.001",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-6006",
+      "availableBalance": "10092.829",
+      "status": "ACTIVE"
+    },
+    {
+      "accountId": "ACC-7007",
+      "availableBalance": "750.000",
+      "status": "FROZEN"
+    },
+    {
+      "accountId": "ACC-8008",
+      "availableBalance": "25.000",
+      "status": "CLOSED"
+    },
+    {
+      "accountId": "ACC-9009",
+      "availableBalance": "50.000",
+      "status": "ACTIVE"
+    }
+  ]
+}

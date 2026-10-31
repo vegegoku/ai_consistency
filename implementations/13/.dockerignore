@@ -1,0 +1,4 @@
+target
+.git
+scripts/local-private.pem
+*.log

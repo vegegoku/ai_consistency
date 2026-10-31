@@ -1,0 +1,25 @@
+name: payment-01-development
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: payments_dev
+      POSTGRES_PASSWORD: local-development-only
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["payment-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payments_dev -d payments"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.6
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KEYCLOAK_ADMIN: local-admin
+      KEYCLOAK_ADMIN_PASSWORD: local-admin-development-only
+    ports: ["127.0.0.1:8180:8080"]
+    volumes: ["./ops/local/realm.json:/opt/keycloak/data/import/payments.json:ro"]
+volumes:
+  payment-data:

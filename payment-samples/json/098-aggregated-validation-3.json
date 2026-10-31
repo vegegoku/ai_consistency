@@ -1,0 +1,8 @@
+{
+  "paymentId": "3e06db4b-9d4f-518b-bfb1-6a77ecdce3ba",
+  "fromAccount": "ACC-1001",
+  "toAccount": "ACC-2002",
+  "amount": "1.1234",
+  "date": "2026-10-31T12:00:00",
+  "purpose": " "
+}

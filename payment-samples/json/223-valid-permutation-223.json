@@ -1,0 +1,9 @@
+{
+  "paymentId": "a569b657-9218-585c-ab04-2dc5dcfcd128",
+  "fromAccount": "ACC-4004",
+  "toAccount": "ACC-1001",
+  "amount": "125.750",
+  "date": "2026-10-31T09:03:42+00:00",
+  "purpose": "Batch sample 223 – rent",
+  "notes": "Reference 223"
+}

@@ -1,0 +1,108 @@
+{
+  "fixtureName": "payment-samples-10-accounts-v1",
+  "currency": "JOD",
+  "defaultAuthorizedPrincipal": "sample-client",
+  "accounts": [
+    {
+      "accountId": "ACC-1001",
+      "customerId": "customer-01",
+      "displayName": "Sample Sender",
+      "currency": "JOD",
+      "availableBalance": "500.000",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": true
+    },
+    {
+      "accountId": "ACC-2002",
+      "customerId": "customer-02",
+      "displayName": "Sample Recipient",
+      "currency": "JOD",
+      "availableBalance": "100.000",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": true
+    },
+    {
+      "accountId": "ACC-3003",
+      "customerId": "customer-03",
+      "displayName": "Zero Balance",
+      "currency": "JOD",
+      "availableBalance": "0.000",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": true
+    },
+    {
+      "accountId": "ACC-4004",
+      "customerId": "customer-04",
+      "displayName": "Maximum Transfer Sender",
+      "currency": "JOD",
+      "availableBalance": "10000.000",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": true
+    },
+    {
+      "accountId": "ACC-5005",
+      "customerId": "customer-05",
+      "displayName": "Small Balance",
+      "currency": "JOD",
+      "availableBalance": "0.001",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": true
+    },
+    {
+      "accountId": "ACC-6006",
+      "customerId": "customer-06",
+      "displayName": "Alternate Sender",
+      "currency": "JOD",
+      "availableBalance": "2500.125",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": true
+    },
+    {
+      "accountId": "ACC-7007",
+      "customerId": "customer-07",
+      "displayName": "Frozen Account",
+      "currency": "JOD",
+      "availableBalance": "750.000",
+      "status": "FROZEN",
+      "canDebit": false,
+      "canReceive": false
+    },
+    {
+      "accountId": "ACC-8008",
+      "customerId": "customer-08",
+      "displayName": "Closed Account",
+      "currency": "JOD",
+      "availableBalance": "25.000",
+      "status": "CLOSED",
+      "canDebit": false,
+      "canReceive": false
+    },
+    {
+      "accountId": "ACC-9009",
+      "customerId": "customer-09",
+      "displayName": "Receive Restricted",
+      "currency": "JOD",
+      "availableBalance": "50.000",
+      "status": "ACTIVE",
+      "canDebit": true,
+      "canReceive": false
+    },
+    {
+      "accountId": "ACC-1010",
+      "customerId": "customer-10",
+      "displayName": "Debit Restricted",
+      "currency": "JOD",
+      "availableBalance": "800.000",
+      "status": "ACTIVE",
+      "canDebit": false,
+      "canReceive": true
+    }
+  ],
+  "note": "Balances and statuses are reset before each independent sample unless a test explicitly covers replay or concurrency."
+}

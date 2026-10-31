@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment><paymentId>1d23af4d-64f8-50e2-88c7-941cd068baf4</paymentId><fromAccount>ACC-6006</fromAccount><toAccount>ACC-2002</toAccount><amount>0.010</amount><date>2026-10-31T09:04:09+00:00</date><purpose>Batch sample 250 – services</purpose><notes>Reference 250</notes></payment>

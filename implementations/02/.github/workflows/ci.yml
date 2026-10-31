@@ -1,0 +1,25 @@
+name: payment-service
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - run: |
+          if [ -f pom.xml ]; then
+            mvn -B verify
+          else
+            mvn -B -f implementations/02/pom.xml verify
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: payment-service-02-tests
+          path: |
+            **/target/surefire-reports
+            **/target/failsafe-reports

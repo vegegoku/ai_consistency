@@ -1,0 +1,2 @@
+CREATE FUNCTION protect_account_baseline() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF (NEW.id,NEW.customer_id,NEW.currency,NEW.opening_balance) IS DISTINCT FROM (OLD.id,OLD.customer_id,OLD.currency,OLD.opening_balance) THEN RAISE EXCEPTION 'Account opening baseline and identity are immutable'; END IF; RETURN NEW; END $$;
+CREATE TRIGGER immutable_account_baseline BEFORE UPDATE ON accounts FOR EACH ROW EXECUTE FUNCTION protect_account_baseline();

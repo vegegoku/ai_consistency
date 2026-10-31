@@ -1,0 +1,5 @@
+target/
+deploy/tls/*.pem
+deploy/jwt/*.pem
+.env
+*.log

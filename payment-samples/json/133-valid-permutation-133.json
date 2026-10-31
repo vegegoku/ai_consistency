@@ -1,0 +1,9 @@
+{
+  "paymentId": "8dc8a0d3-ba58-5306-88da-1112e6ca6f31",
+  "fromAccount": "ACC-1001",
+  "toAccount": "ACC-2002",
+  "amount": "12.345",
+  "date": "2026-10-31T09:02:12+00:00",
+  "purpose": "Batch sample 133 – invoice",
+  "notes": "Reference 133"
+}

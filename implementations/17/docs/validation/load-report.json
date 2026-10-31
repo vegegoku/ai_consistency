@@ -1,0 +1,10 @@
+{
+  "latency_includes_scheduling_delay" : true,
+  "offered_rps" : 100,
+  "max_ms" : 30.063917,
+  "environment" : "Linux / Java 21.0.5",
+  "requests" : 500,
+  "duration_seconds" : 5,
+  "timestamp" : "2026-10-28T17:24:54.834557215Z",
+  "p95_ms" : 11.475791
+}

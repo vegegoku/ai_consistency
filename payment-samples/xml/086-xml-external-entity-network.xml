@@ -1,0 +1,1 @@
+<!DOCTYPE payment [<!ENTITY x SYSTEM "http://127.0.0.1:9/xxe">]><payment><purpose>&x;</purpose></payment>

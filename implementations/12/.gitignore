@@ -1,0 +1,6 @@
+target/
+dev/
+*.log
+.env
+__pycache__/
+*.pyc
